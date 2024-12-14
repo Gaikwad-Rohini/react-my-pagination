@@ -15,9 +15,7 @@ const ServerSide = () => {
         `https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${postsPerPage}`
       );
       const data = await res.json();
-
       const totalPosts = res.headers.get("X-Total-Count");
-
       setPosts(data);
       setTotalPosts(totalPosts);
       setLoading(false);
@@ -61,18 +59,14 @@ const PostList = ({ posts }) => {
 
 const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   const pageNumbers = [];
-
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
-
   const handleClick = (e, number) => {
     e.preventDefault(); // Prevent default anchor behavior
     paginate(number);
   };
-
   const decrement = () => paginate(currentPage - 1);
-
   const increment = () => paginate(currentPage + 1);
 
   return (
