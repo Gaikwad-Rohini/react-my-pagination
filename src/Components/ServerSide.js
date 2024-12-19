@@ -26,7 +26,7 @@ const ServerSide = () => {
 
   return (
     <div className="container">
-      <h1 className="my-5">Blog Posts</h1>
+      <h1>Blog Posts</h1>
       {loading ? <p>Loading...</p> : <PostList posts={posts} />}
       <Pagination
         postsPerPage={postsPerPage}
